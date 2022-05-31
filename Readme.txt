@@ -1,6 +1,6 @@
 The project working with php and mysql PDO, The structure of the project is the next:
 - assets: photos statics
-- library: librarys as Dompdf
+- library: librarys (For the moment the unique library is Dompdf)
 - public: css and js static
 - views: all's the views and controllers of the application
 The structure of the folder 'views' is the next:
