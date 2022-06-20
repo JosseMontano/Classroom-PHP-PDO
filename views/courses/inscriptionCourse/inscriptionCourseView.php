@@ -1,3 +1,5 @@
+<script src="../../../library/datatables/vanilla-dataTables.min.js"></script>
+<link href="../../../library/datatables/vanilla-dataTables.min.css"></link>
 <?php
 
 require '../../../startup.php';
@@ -19,7 +21,7 @@ $id_course = $_GET['id_course'];
 ?>
 
 <?php include('../../includes/header.php')?>
-   <table>
+   <table id="myTable">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -43,6 +45,12 @@ $id_course = $_GET['id_course'];
             <?php } ?>
         </tbody>
     </table>
+
+    <script>
+        var dataTable = new DataTable("#myTable");
+    </script>
+
+
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+
+
 <?php
 
 require '../../startup.php';
@@ -29,12 +31,18 @@ if (isset($_POST['guardar'])) {
     $datos->id_role = $rol_capturado;
     $datos->saveInTableUsers();
     $mensaje = $datos->mensaje;
-    header("Location: registerView.php");
+    header("Location: registerSuccess.php");
 }
 ?>
 
 
-<?php include("../includes/header.php") ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../public/css/sesiones.css">
+</head>
+<body>
     <div class="container">
         <form action="registerView.php" method="post">
             <div class="imgcontainer">
@@ -72,6 +80,5 @@ if (isset($_POST['guardar'])) {
             </div>
         </form>
     </div>
-
 </body>
 </html>

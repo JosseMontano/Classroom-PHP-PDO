@@ -1,6 +1,5 @@
 <?php
 require '../../../../../startup.php';
-
 $con = new startup();
 $conexion = $con->conectarPDO();
 session_start();
@@ -10,7 +9,6 @@ $sql = "SELECT * from homeworks where id_publciation='$id_publication'";
 $consulta = $conexion->prepare($sql);
 $consulta->execute();
 $homeowkrs = $consulta->fetchAll(PDO::FETCH_OBJ);
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +42,7 @@ $homeowkrs = $consulta->fetchAll(PDO::FETCH_OBJ);
                         <a target="_blank" href="../downloadFile.php?file=../contentPublication/files/<?php echo $homeowkr->file_homework ?>">ver doc</a>
                         <br />
                         <br /> 
-                      <form action="qualifiedView.php" method="POST">
+                      <form action="qualifiedView.php?id_publication=<?php echo $id_publication ?>" method="POST">
                     <input type="hidden" name="id_homework" value="<?php echo $homeowkr->id_homework ?>">
                       <input type="text" name="qualification_homework" placeholder="calificacion"> <br />
                         <textarea name="feedback_homework"></textarea>
@@ -58,7 +56,7 @@ $homeowkrs = $consulta->fetchAll(PDO::FETCH_OBJ);
             <?php  } ?>
 
         </div>
-
+<a href="../../../../welcome.php">Inicio</a>
     </div>
 </body>
 

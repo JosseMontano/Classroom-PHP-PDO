@@ -15,9 +15,7 @@ $id_user = $_SESSION['id_user'];
 $datos = new createCourseController();
 $mensaje = null;
 $txtFoto;
-
 $id_course = $_GET['id_course'];
-
 if (isset($_POST['guardar'])) {
     $txtFile = $_FILES['txtFile'];
     $fecha = new DateTime();
@@ -26,7 +24,6 @@ if (isset($_POST['guardar'])) {
     if ($tmpFoto != "") {
         move_uploaded_file($tmpFoto, "files/" . $nombreArchivo);
     }
-
     $datos->title_publication = $_POST['title_publication'];
     $datos->description_publication = $_POST['description_publication'];
     $datos->deliver_date_publication = $_POST['deliver_date_publication'];
@@ -35,17 +32,13 @@ if (isset($_POST['guardar'])) {
     $datos->save();
     $mensaje = $datos->mensaje;
 }
-
-
 ?>
-
 
 <?php include("../../includes/header.php") ?>
     <div class="container">
         <div class="imgcontainer">
             <img width="450px" src="../../../assets/createCourse.jpg" alt="Avatar" class="avatar">
         </div>
-
         <div class="content">
             <form action="createPublicationView.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_course" value="<?php echo $id_course ?>">
@@ -62,7 +55,5 @@ if (isset($_POST['guardar'])) {
             </form>
         </div>
     </div>
-
 </body>
-
 </html>

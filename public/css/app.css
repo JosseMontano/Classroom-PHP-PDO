@@ -1,4 +1,28 @@
-
+.bodyWelcome{
+    margin: 0;
+    padding: 0;
+}
 .black{
     filter: invert(1) hue-rotate(180deg)
+}
+.imgWelcome{
+    background-image: url('../../assets/fondoInicio.jpg');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.btnStart{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    background-color:#ffd44c;
+    padding: 10px;
+    text-decoration: none;
+    color:#fff;
+    border-radius:10px;
+}
+.btnStart:hover{
+    background-color:#fac30e;
+    transform: scale(1.2);
 }

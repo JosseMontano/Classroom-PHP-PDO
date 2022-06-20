@@ -47,6 +47,7 @@ $contador = count($homeowkrs);
             <p><?php echo $publication->description_publication  ?></p>
             <p><?php echo $publication->deliver_date_publication ?></p>
             <a target="_blank" href="../../contentCourse/contentPublication/downloadFile.php?file=../../createPublication/files/<?php echo $publication->doc_publication ?>">Ver doc</a>
+            <a href="../../../welcome.php">Inicio</a>
           </div>
         </div>
         <?php  }
@@ -65,7 +66,7 @@ $contador = count($homeowkrs);
 
         <div class="uploadFile">
           <h2>Subir tarea</h2>
-          <form action="uploadHomework.php" method="post" enctype="multipart/form-data">
+          <form action="uploadHomework.php?id_publication=<?php echo $id_publication; ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id_publication" value="<?php echo $publication->id_publication  ?>">
             <input type="hidden" name="id_student" value="<?php echo $id_user  ?>">
             <input type="file" accept="*" name="txtFile" required>

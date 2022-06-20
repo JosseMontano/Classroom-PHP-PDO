@@ -1,5 +1,7 @@
-<?php 
+<script src="../../library/sweetalert2/sweetalert2@11.js"></script>
 
+<?php 
+error_reporting(E_ERROR | E_PARSE);
 $email = $_POST['username'];
 $psw = $_POST['psw'];
 
@@ -27,12 +29,24 @@ if ($id_user != '') {
 	$_SESSION['name_user'] = $user;
 	$_SESSION['id_user'] = $id_user;
 	$_SESSION['id_role'] = $id_role;
+
     $correct = '../welcome.php';
 	header("location:" . $correct);
 }
 else{
-    $false = 'loginView.php';
-	header("location:" . $false);
+echo "<p></p>";
+	?>
+	<script>
+		Swal.fire({
+  icon: 'error',
+  title: 'Datos erroneos',
+  text: 'Tus datos no existen en la base de datos!',
+  footer: '<a href="loginView.php">Volver a probar</a>'
+});
+	</script>
+	<?php
+ 
+
 }
 ?>
 

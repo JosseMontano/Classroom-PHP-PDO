@@ -1,6 +1,10 @@
-
-<?php include("../includes/header.php") ?>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../public/css/sesiones.css">
+</head>
+<body>
 <div class="container">
 <h2 class="title">Iniciar sesion</h2>
 <form action="loginController.php" method="post">
@@ -16,6 +20,6 @@
   </div>
 </form>
 </div>
-
+<script src="../../library/sweetalert2/sweetalert2@11.js"></script>
 </body>
 </html>

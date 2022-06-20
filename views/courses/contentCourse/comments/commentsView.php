@@ -7,7 +7,6 @@ $conexion = $con->conectarPDO();
 session_start();
 $id_publication = $_GET['id_publication'];
 $user = $_SESSION['id_user'];
-//$sql = "SELECT * from users where name_user='$user'";
 $sql = "SELECT * from comments where id_publication='$id_publication'";
 $sql = "SELECT c.title_comment, c.description_comment, u.name_user FROM comments c, users u where c.id_student=u.id_user and c.id_publication='$id_publication'";
 $consulta = $conexion->prepare($sql);
@@ -21,9 +20,9 @@ if (isset($_POST['guardar'])) {
     $datos->description_comment = $_POST['description_comment'];
     $datos->id_student = $_POST['id_student'];
     $datos->id_publication = $_POST['id_publication'];
-    $datos->store();
+    $datos->store();  
+    header("location: successView.php?id_publication=$id_publication");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +56,7 @@ if (isset($_POST['guardar'])) {
     </div>
     <div class="uploadFile">
     <h2>Publica comentario</h2>
-    <form action='commentsView.php' method="post" class="comments">
+    <form action='commentsView.php?id_publication=<?php echo $id_publication?>' method="post" class="comments">
         <input type="hidden" value="<?php echo $user ?>" name="id_student">
         <input type="hidden" value="<?php echo $id_publication ?>" name="id_publication">
        <input name="title_comment" type="text" placeholder="Titulo">
@@ -66,7 +65,7 @@ if (isset($_POST['guardar'])) {
       <textarea name="description_comment" placeholder="Descripcion"></textarea>
       <br/>
       <br/>
-      <button name="guardar">Enviar</button><br/>
+      <button name="guardar" class="btnStart">Enviar</button><br/>
       </div>
     </form>
 

@@ -1,3 +1,4 @@
+<script src="../../../../library/sweetalert2/sweetalert2@11.js"></script>
 <?php 
 require '../../../../startup.php';
 require 'contentPublicationController.php';
@@ -12,12 +13,19 @@ if (isset($_POST['uploadHomework'])) {
     if ($tmpFoto != "") {
         move_uploaded_file($tmpFoto, "files/" . $nombreArchivo);
     }
-  
     $datos->file_homework = $nombreArchivo;
     $datos->id_student = $_POST['id_student'];
     $datos->id_publciation = $_POST['id_publication'];
     $datos->save();
     $mensaje = $datos->mensaje;
   }
-  echo "se subio la tarea con exito";
 ?>
+
+<script>
+      Swal.fire({
+  icon: 'success',
+  title: 'Creacion exitosa',
+  text: 'Se creo el curso de forma correcta',
+  footer: '<a href="contentPublicationView.php?id_publication=<?php echo $_GET['id_publication']; ?>">Volver al formulario</a>'
+})
+</script>

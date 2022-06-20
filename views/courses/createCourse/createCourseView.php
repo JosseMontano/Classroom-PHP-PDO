@@ -26,6 +26,7 @@ if (isset($_POST['guardar'])) {
     $datos->id_professor = $id_user;
     $datos->saveInTableCourses();
     $mensaje = $datos->mensaje;
+    header("Location: createCourseSuccess.php");
 }
 ?>
 

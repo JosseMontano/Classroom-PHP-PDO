@@ -37,7 +37,8 @@
 .uploadFile{
     box-shadow: 0 3px 10px rgba(0, 0, 0, .5);
     margin:10px;
-    padding-left: 10px;
+    display: grid;
+    place-content: center;
 }
 .bodyDetailsPubli{
     height: 100vh;
@@ -45,7 +46,19 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
 .comments input, .comments textarea{
     border: none;
     border-bottom: 4px solid #464646;
+}
+.btnStart{
+    background-color:#fac30e;
+    padding: 10px;
+    text-decoration: none;
+    color:#fff;
+    border-radius:10px;
+}
+.btnStart:hover{
+    background-color:#e5b20c;
+    transform: scale(1.2);
 }
